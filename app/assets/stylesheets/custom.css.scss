@@ -1,0 +1,86 @@
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+.navbar-inverse{
+background-color: #40415F;
+
+}
+
+.center{
+	
+	text-align: center;
+}
+
+h1.display-3{
+	
+	color: #fff;
+	font-weight: bold;
+	margin-bottom: 30px;
+}
+
+#logo {
+
+	float: left;
+	font-size: 2.1em;
+	color: #fff;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+#logo:hover {
+
+	color: red;
+	text-decoration: none;
+}
+
+
+#navbarNavDropdown {
+	font-size: 1.3em;
+	color: #fff;
+	text-transform: uppercase;
+	font-weight: bold;
+
+
+}
+
+#ilogo {
+
+color: #fff;
+
+}
+
+#navbarDropdownMenuLink {
+
+	color: #fff;
+}
+
+.jumbotron {
+	
+background-image: asset-url('rail.png');
+background-size: cover;
+height: 650px;
+}
+
+.display-3:hover {
+
+	color: blue;
+}
+
+.footer {
+
+	margin-top: 40px;
+	border-top: 3px solid;
+}
+
+.footer ul {
+
+	float: right;
+	margin-top: -20px;
+	list-style: none;
+}
+ .footer a:hover{
+
+ 	color: black;
+ }
