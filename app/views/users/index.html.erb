@@ -5,6 +5,8 @@
 <%= link_to 'Write Article', new_article_path, class: 'btn btn-xs btn-primary' %>
 </div>
 <div align="center">
+<%= will_paginate%>
+
 <% @users.each do |user| %>
 <div class="row">
 <div class="col-xs-8 col-xs-offset-2">
@@ -28,9 +30,11 @@
  </div>
  </div>
  </div>
- </div>
-
- <%end%>
 </div>
+</div>
+ <%end%>
+ <%= will_paginate%>
+
+ 
 
 
