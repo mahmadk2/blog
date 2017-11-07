@@ -4,28 +4,33 @@
 <div class="col-xs-10 col-xs-offset-5">
 <%= link_to 'Write Article', new_article_path, class: 'btn btn-xs btn-primary' %>
 </div>
-
-<% @users.each do |f| %>
+<div align="center">
+<% @users.each do |user| %>
 <div class="row">
 <div class="col-xs-8 col-xs-offset-2">
 <div class="well wel-lg">
+
+<%= link_to gravatar_for(user), user_path(user)%>
 <div class="article-title">
-<%= link_to f.username, user_path(f)%>
+<%= link_to user.username, user_path(user)%>
 </div>
 <div class="article-body">
+<ul class="listing">
+<li><%= truncate(user.email, length: 30) %></li>
 
-<%= truncate(f.email, length: 30) %>
+<li><small><%= pluralize(user.articles.count, "article")%></small></li>
+</ul>
 
 <div class="article-actions">
-<%= link_to 'Edit', edit_user_path(f), class: "btn btn-xs btn-primary" %>
-<%= link_to 'Show', user_path(f), class: "btn btn-xs btn-info" %>
-<%= link_to 'Delete', user_path(f), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-xs btn-danger"%>
+<%= link_to 'Edit', edit_user_path(user), class: "btn btn-xs btn-primary" %>
+<%= link_to 'Show', user_path(user), class: "btn btn-xs btn-info" %>
+<%= link_to 'Delete', user_path(user), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-xs btn-danger"%>
  </div>
  </div>
  </div>
  </div>
 
  <%end%>
-
+</div>
 
 
