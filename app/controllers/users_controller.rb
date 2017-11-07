@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
 
-
+  def index
+   @users = User.all
+  end
 def new
 @user = User.new 
 
@@ -11,7 +13,7 @@ def  create
 @user = User.new(user_params)
 if @user.save
    flash[:success] = "successfully user created #{@user.username}"
-   redirect_to articles_path
+   redirect_to users_path
 	else
 
 		render 'new'
@@ -27,12 +29,23 @@ def edit
      @user = User.find(params[:id])
      if @user.update(user_params)
      	flash[:success] = " Successfulluy update user information"
-     	redirect_to articles_path
+     	redirect_to users_path
 
      else
 
      	render 'edit'
      end
+	end
+
+	def destroy
+     @user = User.find(params[:id])
+     @user.destroy
+     flash[:danger] = "user delete successfully"
+     redirect_to users_path
+	end
+
+	def show
+    @user = User.find(params[:id])
 	end
 
 
