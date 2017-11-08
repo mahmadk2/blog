@@ -20,7 +20,13 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li> <%= link_to 'SignUp', signup_path, class: "glyphicon glyphicon-user" %></li>
-      <li> <%= link_to 'Login', '#', class: "glyphicon glyphicon-log-in" %></li>
+      <%if logged_in? %>
+      <li> <%= link_to 'Logout', logout_path, method: :delete, class: "glyphicon glyphicon-log-in" %></li>
+      <% else %>
+            <li> <%= link_to 'Login', login_path, class: "glyphicon glyphicon-log-in" %></li>
+  
+
+       <%end%>  
 
     </ul>
   </div>
