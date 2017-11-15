@@ -22,12 +22,14 @@
 
 <li><small><%= pluralize(user.articles.count, "article")%></small></li>
 </ul>
-
+<%if logged_in? %>
 <div class="article-actions">
 <%= link_to 'Edit', edit_user_path(user), class: "btn btn-xs btn-primary" %>
 <%= link_to 'Show', user_path(user), class: "btn btn-xs btn-info" %>
 <%= link_to 'Delete', user_path(user), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-xs btn-danger"%>
+
  </div>
+ <%end%>
  </div>
  </div>
 </div>
