@@ -62,7 +62,7 @@ def article_params
 end
 
 def require_same
-  if current_user != @article.user
+  if current_user != @article.user and !current_user.admin?
 
   	flash[:danger] = "you can only edit you own article"
   	redirect_to root_path

@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
 before_action :set_user, only: [:edit, :update, :destroy, :show]
 before_action :require_same, only: [:edit, :update]
-
+before_action :require_admin, only:[:destroy]
   def index
    @users = User.all.paginate(page: params[:page], per_page: 5)
   end
@@ -17,7 +17,7 @@ def  create
 @user = User.new(user_params)
 if @user.save
   session[:user_id] = @user.id
-   flash[:success] = "successfully user created #{@user.username}"
+   flash[:success] = "welcome to web blog #{@user.username}"
    redirect_to user_path(@user)
 	else
 
@@ -65,10 +65,17 @@ def set_user
 end
 
 def require_same
-if  current_user != @user
+if  current_user != @user and !current_user.admin?
   flash[:danger] = "only edit your own account"
   redirect_to root_path
 end
   end
+
+  def require_admin
+     if logged_in? and !current_user.admin? 
+     flash[:danger] = "admin perform this action only"
+     redirect_to root_path
+  end
+end
 
 end
